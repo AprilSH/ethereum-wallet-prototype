@@ -1,0 +1,126 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"name": "acctAddr",
+				"type": "address"
+			},
+			{
+				"name": "acctKey",
+				"type": "string"
+			}
+		],
+		"name": "registerAccount",
+		"outputs": [
+			{
+				"name": "isSuccess",
+				"type": "bool"
+			},
+			{
+				"name": "errMsg",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "email",
+				"type": "string"
+			}
+		],
+		"name": "transferFunds",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "getAccountByAddress",
+		"outputs": [
+			{
+				"name": "email",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "email",
+				"type": "string"
+			}
+		],
+		"name": "getAccountByEmail",
+		"outputs": [
+			{
+				"name": "aEmail",
+				"type": "string"
+			},
+			{
+				"name": "aAcctAddr",
+				"type": "address"
+			},
+			{
+				"name": "aAcctKey",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getListAccount",
+		"outputs": [
+			{
+				"name": "accountList",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "email",
+				"type": "string"
+			}
+		],
+		"name": "isEmailExist",
+		"outputs": [
+			{
+				"name": "isExists",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

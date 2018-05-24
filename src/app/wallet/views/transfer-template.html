@@ -1,0 +1,55 @@
+
+
+<div class="container d-flex justify-content-center content-margin">
+		<form class="form-horizontal" action="" name="form" class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit(form)" >   
+			<fieldset>
+				<div id="legend">
+				  <legend class="">Transfer Ether to Account</legend>
+				</div>
+			    <div class="row">
+					<div class="col-lg-6">
+						<div class="control-group">
+						  <!-- E-mail -->
+						  <label class="control-label" for="fromEmail">From E-mail</label>
+						  <div class="controls">
+							<input type="text" class="input-xlarge" id="fromEmail" name="fromEmail"  formControlName="fromEmail" />				
+						  </div>
+						</div>
+						
+						<div class="control-group">
+						  <!-- E-mail -->
+						  <label class="control-label" for="toEmail">To E-mail</label>
+						  <div class="controls">
+							<input type="text" class="input-xlarge" id="toEmail" name="toEmail"  formControlName="toEmail" />	
+						  </div>
+						</div>
+					 
+						<div class="control-group">
+						  <label class="control-label" for=""></label>
+						  <div class="controls">
+							<button class="btn btn-success">Send</button>
+						  </div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						
+						<div class="control-group">
+						  <!-- E-mail -->
+						  <label class="control-label" for="fromPasswd">Password</label>
+						  <div class="controls">
+							<input type="password" class="input-xlarge" id="fromPasswd" name="fromPasswd"  formControlName="fromPasswd" />	
+						  </div>
+						</div>
+					
+						<div class="control-group">
+						  <label class="control-label" for="amount">Amount</label>
+						  <div class="controls">
+							<input type="text" class="input-xlarge" id="amount" name="amount"  formControlName="amount"/>  
+						  </div>
+						</div>
+					</div>
+				</div>
+			  </fieldset>
+		</form>
+</div>
+
