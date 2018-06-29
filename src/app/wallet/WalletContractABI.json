@@ -1,29 +1,54 @@
 [
 	{
-		"constant": false,
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_tokenAddress",
+				"type": "address"
+			}
+		],
+		"name": "getTokenInfo",
+		"outputs": [
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "symbol",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
 		"inputs": [
 			{
 				"name": "email",
 				"type": "string"
-			},
-			{
-				"name": "acctAddr",
-				"type": "address"
-			},
-			{
-				"name": "acctKey",
-				"type": "string"
 			}
 		],
-		"name": "registerAccount",
+		"name": "isEmailExist",
 		"outputs": [
 			{
-				"name": "isSuccess",
+				"name": "isExists",
 				"type": "bool"
-			},
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "clearToken",
+		"outputs": [
 			{
-				"name": "errMsg",
-				"type": "string"
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -31,32 +56,18 @@
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "email",
-				"type": "string"
-			}
-		],
-		"name": "transferFunds",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [
 			{
-				"name": "_addr",
+				"name": "_address",
 				"type": "address"
 			}
 		],
-		"name": "getAccountByAddress",
+		"name": "isTokenExist",
 		"outputs": [
 			{
-				"name": "email",
-				"type": "string"
+				"name": "exists",
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -91,6 +102,20 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "email",
+				"type": "string"
+			}
+		],
+		"name": "transferFunds",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [],
 		"name": "getListAccount",
@@ -108,19 +133,110 @@
 		"constant": true,
 		"inputs": [
 			{
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "getAccountByAddress",
+		"outputs": [
+			{
 				"name": "email",
 				"type": "string"
 			}
 		],
-		"name": "isEmailExist",
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"name": "acctAddr",
+				"type": "address"
+			},
+			{
+				"name": "acctKey",
+				"type": "string"
+			}
+		],
+		"name": "registerAccount",
 		"outputs": [
 			{
-				"name": "isExists",
+				"name": "isSuccess",
 				"type": "bool"
+			},
+			{
+				"name": "errMsg",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getListToken",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
 			}
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_tokenAddress",
+				"type": "address"
+			},
+			{
+				"name": "_tokenName",
+				"type": "string"
+			},
+			{
+				"name": "_tokenSymbol",
+				"type": "string"
+			}
+		],
+		"name": "addToken",
+		"outputs": [
+			{
+				"name": "isSuccess",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_tokenAddress",
+				"type": "address"
+			}
+		],
+		"name": "clearTokenInfo",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

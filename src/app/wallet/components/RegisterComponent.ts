@@ -10,6 +10,7 @@ import { WalletContractService } from '../WalletContractService';
 export class RegisterComponent implements OnInit {
   
   @Output() OnAccountCreate = new EventEmitter<boolean>();
+  @Output() OnCreate = new EventEmitter<boolean>();
   form : FormGroup;	 
   constructor(private ws : WalletContractService,private fb : FormBuilder){
 	    
@@ -31,5 +32,10 @@ export class RegisterComponent implements OnInit {
 	  this.ws.createAccount(form.value.email,form.value.passwd).subscribe(function(result){
 		  _self.OnAccountCreate.emit(true);
 	  });
+  }
+
+  onCreate(){
+    this.OnCreate.emit(true);
+    console.log("success");
   }
 }

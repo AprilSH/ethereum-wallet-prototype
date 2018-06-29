@@ -1,0 +1,10 @@
+.title{
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.06), 0 4px 5px 0 rgba(0,0,0,0.06), 0 1px 10px 0 rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: .2rem;
+    color: white;
+    text-shadow: 2px 2px 4px #373737;
+    background-color: #1B3C4D;
+}

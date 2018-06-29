@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule,Routes} from '@angular/router';
-import { FormsModule, ReactiveFormsModule }         from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -12,7 +13,7 @@ import { ExtractKeyComponent } from './wallet/components/ExtractKeyComponent';
 import { AccountListComponent } from './wallet/components/AccountListComponent';
 import { WalletContractService } from './wallet/WalletContractService';
 import { WalletComponent } from './wallet/components/WalletComponent'; 
-
+import { DetailComponent} from './wallet/components/DetailComponent';
 
 const routes : Routes = [
   { path : 'wallet', component : WalletComponent},
@@ -26,13 +27,15 @@ const routes : Routes = [
   ImportComponent,
   TransferComponent,
   ExtractKeyComponent,
-	AccountListComponent,
+  AccountListComponent,
+  DetailComponent,
 	WalletComponent
   ],
   imports: [
     BrowserModule,
-	ReactiveFormsModule,
-	RouterModule.forRoot(routes)  
+    ReactiveFormsModule,
+    HttpModule,
+	  RouterModule.forRoot(routes)  
   ],
   providers: [WalletContractService],
   bootstrap: [AppComponent]

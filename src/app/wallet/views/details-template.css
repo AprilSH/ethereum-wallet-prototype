@@ -1,0 +1,35 @@
+
+.email{
+    font-size: 22pt;
+    min-width: 200px;
+    padding: 10px 0;
+}
+
+
+
+.balance{
+    font-size: 23pt;
+    color: rgb(97, 101, 107);
+    text-align: left;
+    min-width:260px;
+    table-layout: inherit;
+    width: 100%;
+}
+
+
+.account-icon{
+    padding: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+.drop{
+    /* margin: 10px 0 5px 0; */
+    align: right;
+}
+
+.list-icon{
+    margin: 0 10px 0 0;
+    width: 30px;
+    height: 30px;
+}

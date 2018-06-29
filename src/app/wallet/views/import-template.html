@@ -1,16 +1,13 @@
 
-<div class="container d-flex justify-content-center content-margin">
+<div  class="container content-margin" style="text-align: left">
     <form class="form-horizontal" action="" name="form" class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit(form)" >   
         <fieldset>
-            <div id="legend">
-              <legend class="">Import Ethereum Account</legend>
-            </div>
          
             <div class="control-group">
               <!-- E-mail -->
               <label class="control-label" for="email">E-mail</label>
               <div class="controls">
-                <input type="text" id="email2" name="email" class="input-xlarge" name="email2"  formControlName="email2" >
+                <input type="text" id="email2" name="email" class="form-control" name="email2"  formControlName="email2" >
               </div>
             </div>
          
@@ -18,8 +15,7 @@
               <!-- Password-->
               <label class="control-label" for="password">Password</label>
               <div class="controls">
-                <input type="password" id="password2" name="password" name="passwd2"  formControlName="passwd2"  class="input-xlarge">
-                <p class="help-block">Password/PassPhrase</p>
+                <input type="password" id="password2" name="password" name="passwd2"  formControlName="passwd2"  class="form-control">
               </div>
             </div>
 
@@ -27,14 +23,14 @@
               <!-- PrivateKey-->
               <label class="control-label" for="privateKey">PrivateKey</label>
               <div class="controls">
-                <input type="text" id="privateKey" name="privateKey" name="privKey"  formControlName="privKey"  class="input-xlarge">
+                <input type="text" id="privateKey" name="privateKey" name="privKey"  formControlName="privKey"  class="form-control">
               </div>
             </div>
          
             <div class="control-group">
               <!-- Button -->
               <div class="controls">
-                <button class="btn btn-success" style="margin-top:10px">Import</button>
+                <button class="btn btn-info" style="margin-top:10px" (click)="onImport()">Import</button>
               </div>
             </div>
           </fieldset>

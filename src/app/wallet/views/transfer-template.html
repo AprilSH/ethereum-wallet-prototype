@@ -1,18 +1,50 @@
 
 
-<div class="container d-flex justify-content-center content-margin">
+<div class="container content-margin" style="text-align: left">
 		<form class="form-horizontal" action="" name="form" class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit(form)" >   
-			<fieldset>
-				<div id="legend">
-				  <legend class="">Transfer Ether to Account</legend>
+			<div class="row">
+				<div class="col-xs-12" style="margin: 1px auto">
+					<label class="radio-btn" >Ether
+						<input type="radio" [checked]="true" formControlName="asset"  value="false" (click)="isTokenSend=false" >
+						<span class="checkmark" ></span>
+					</label>
+					<label class="radio-btn" >Token
+						<input type="radio"  formControlName="asset"  value="true" (click)="isTokenSend=true" >
+						<span class="checkmark" ></span>
+					</label>
+					
 				</div>
+			</div>
+			
+			<fieldset>
+					<div class="row">
+							<div class="col-xs-12" style="margin: 1px auto">
+								<div class="btn-group" data-toggle="buttons">
+									<!-- <label class="btn active" (click)="isTokenSend=false">
+										<input class="fa fa-circle-o fa-2x"type="radio" name='asset' formControlName="asset" (click)="isTokenSend=true" value="value1"><i ></i><i class="fa fa-dot-circle-o fa-2x"></i><h4 style="display: inline;">Ether</h4>
+									</label>
+									<label class="btn" (click)="isTokenSend=true">
+										<input type="radio" name='asset' formControlName="asset" (click)="isTokenSend=false" value="value2"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><h4 style="display: inline;">Token</h4>
+									</label> -->
+									
+								</div>
+					
+							</div>
+						</div>
+					<div class="form-group" *ngIf="isTokenSend">
+							<label for="exampleFormControlSelect1">Token</label>
+							<select class="form-control" id="exampleFormControlSelect1" formControlName="tokenSelect">
+								<option *ngFor="let token of tokenList" [value]="token.tokenAddress">{{ token.symbol }}</option>
+							</select>
+						</div>
+					
 			    <div class="row">
 					<div class="col-lg-6">
 						<div class="control-group">
 						  <!-- E-mail -->
 						  <label class="control-label" for="fromEmail">From E-mail</label>
 						  <div class="controls">
-							<input type="text" class="input-xlarge" id="fromEmail" name="fromEmail"  formControlName="fromEmail" />				
+							<input type="text" class="form-control" id="fromEmail" name="fromEmail"  formControlName="fromEmail" />				
 						  </div>
 						</div>
 						
@@ -20,14 +52,7 @@
 						  <!-- E-mail -->
 						  <label class="control-label" for="toEmail">To E-mail</label>
 						  <div class="controls">
-							<input type="text" class="input-xlarge" id="toEmail" name="toEmail"  formControlName="toEmail" />	
-						  </div>
-						</div>
-					 
-						<div class="control-group">
-						  <label class="control-label" for=""></label>
-						  <div class="controls">
-							<button class="btn btn-success">Send</button>
+							<input type="text" class="form-control" id="toEmail" name="toEmail"  formControlName="toEmail" />	
 						  </div>
 						</div>
 					</div>
@@ -37,17 +62,23 @@
 						  <!-- E-mail -->
 						  <label class="control-label" for="fromPasswd">Password</label>
 						  <div class="controls">
-							<input type="password" class="input-xlarge" id="fromPasswd" name="fromPasswd"  formControlName="fromPasswd" />	
+							<input type="password" class="form-control" id="fromPasswd" name="fromPasswd"  formControlName="fromPasswd" />	
 						  </div>
 						</div>
 					
 						<div class="control-group">
 						  <label class="control-label" for="amount">Amount</label>
 						  <div class="controls">
-							<input type="text" class="input-xlarge" id="amount" name="amount"  formControlName="amount"/>  
+							<input type="text" class="form-control" id="amount" name="amount"  formControlName="amount"/>  
 						  </div>
 						</div>
 					</div>
+				</div>
+				<div class="control-group">
+						<label class="control-label" for=""></label>
+						<div class="controls" style="text-align: center;">
+						<button class="btn btn-info" style="width: 100px;" (click)="onSend()">Send</button>
+						</div>
 				</div>
 			  </fieldset>
 		</form>

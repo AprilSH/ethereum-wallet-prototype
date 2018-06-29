@@ -12,3 +12,12 @@ body{
 .content-margin{
     margin: 2% auto 2% auto;
 }
+
+.btn-color{
+	background-color: #F16220;
+	border-color: #D8581B;
+}
+
+.btn-color:active{
+	border-color: rgb(250, 130, 74);
+}

@@ -1,7 +1,16 @@
-<div class="row">
+
+<h2 class="nav justify-content-center title">R&D Ethereum Wallet</h2>
+
+<div class="row" border="2px solid black">
+  <div style="margin: 40px auto 50px auto;">
+    <account-details (OnChangeAccount)="list.loadListToken($event)"></account-details>
+    <account-list (OnTokenAdd)="list.loadListToken($event)" #list></account-list>
+  </div>
+</div>  
+
+<!-- <div class="row">
   <div class="border col-lg-6 mt-2"><register-form (OnAccountImport)="list.loadListAccount($event)"></register-form></div>
   <div class="border col-lg-6 mt-2"><import-form (OnAccountCreate)="list.loadListAccount($event)"></import-form></div>
   <div class="border col-xl-6 mt-2"><transfer-form (OnEtherSend)="list.loadListAccount($event)"></transfer-form></div> 
   <div class="border col-xl-6 mt-2"><extractKey-form (OnEtherSend)="list.loadListAccount($event)"></extractKey-form></div> 
-</div>
-<account-list #list></account-list>
+</div> -->

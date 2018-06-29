@@ -1,2 +1,2 @@
-miner.start();
-eth.personal
+
+miner.start()

@@ -3,41 +3,86 @@
 
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
-<div class="container bootstrap snippet">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="main-box no-header clearfix">
-                <div class="main-box-body clearfix">
-                    <div class="table-responsive">
-                        <table class="table user-list ">
-                            <thead>
-                                <tr>
-                                <th><span></span></th>
-                                <th><span>Email</span></th>
-                                <th><span>Address</span></th>
-                                <th class="text-center"><span>Balance</span></th>    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let detail of _listAccount">
-                                    <td>
-                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
-                                    </td>
-									<td>
-                                        <a href="#">{{detail.aEmail}}</a>
-                                    </td>
-                                    <td>
-                                        {{detail.aAcctAddr}}
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="label label-default">{{detail.balance}} Ether <img width="25px" height="25px" src="https://cdn2.iconfinder.com/data/icons/cryptocurrency-5/100/cryptocurrency_blockchain_crypto-02-512.png"/></span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+<ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-top: 50px">
+  <li class="nav-item tab">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">Transactions</a>
+  </li>
+  <li class="nav-item tab">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#viewToken" role="tab" aria-controls="profile" aria-selected="false">Tokens</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="history" role="tabpanel" aria-labelledby="home-tab">
+        TRANSACTION LIST
+    </div>
+
+    <div class="tab-pane fade " id="viewToken" role="tabpanel" aria-labelledby="profile-tab" style="width:70%; margin: auto auto">
+       <div class="d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#tokenModal" (click)="toggleModal(1)" [disabled]="!isEmpty">Clear List</button>
+            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#tokenModal" (click)="toggleModal(2)">Add Token</button>
+       </div>
+       <ul class="list-group" style="margin-top: 30px;" *ngIf="isEmpty">
+        <li class="d-flex justify-content-between align-items-center" *ngFor="let details of listToken" >
+            {{ details.symbol }} ({{ details.name }})
+            <span class="badge badge-warning badge-pill bal-badge">{{ details.balance }}</span>
+        </li>
+      </ul>
+      <div class="loader" *ngIf="isLoad"></div>
+
+      
+
+    </div>
+</div>
+
+  <div class="col-sm-6" style="margin: auto; text-align: center">
+    <div class="modal fade" id="tokenModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-header" *ngIf="!isClear">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Token</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container content-margin" style="text-align: left" *ngIf="!isClear"> 
+                        <form class="form-horizontal" action="" name="form" class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit(form)" >   
+                                <fieldset>
+                                <div class="control-group">
+                                    <!-- Token Address -->
+                                    <label class="control-label" for="tokenAddress">Token Contract Address</label>
+                                    <div class="controls">
+                                        <input type="text" id="tokenAddress" class="form-control" name="tokenAddress"  formControlName="tokenAddress" >
+                                    </div>
+                                </div>
+                             
+                                <div class="control-group">
+                                    <!-- Button -->
+                                    <div class="controls">
+                                    <button class="btn btn-info add-btn">Add</button>
+                                    </div>
+                                </div>
+                                </fieldset>
+                            </form>
+                                        
                     </div>
+                    <div *ngIf="isClear">
+                        <h5>Delete ALL Token in the list?</h5>
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align:left; ">
+                    <div class="col-sm-6"   *ngIf="status"><h5>{{ txStatus }}</h5></div>
+                    <div class="col-sm-6" style="text-align:right;">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="clearToken()" *ngIf="isClear">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="reset();">Close</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>
+        
     </div>
 </div>

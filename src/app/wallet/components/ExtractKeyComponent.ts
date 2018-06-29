@@ -10,7 +10,9 @@ import { WalletContractService } from '../WalletContractService';
 export class ExtractKeyComponent implements OnInit {
   
   @Output() OnKeyExport = new EventEmitter<boolean>();
+  @Output() OnView = new EventEmitter<boolean>();
   form : FormGroup;
+  showPrivateKey = false;
   constructor(private ws : WalletContractService,private fb : FormBuilder){
     
   }
@@ -25,11 +27,18 @@ export class ExtractKeyComponent implements OnInit {
   }
   
   onSubmit(form){
-	  let _self = this;
+    let _self = this;
+    this.OnView.emit(true);
 	  this.ws.exportKey(form.value.emailExtract,form.value.passExtract).subscribe(function(result){
       form.controls["privKeyExtract"].setValue(result);
       console.log(this.text + " result");
+      _self.showPrivateKey = true;
       _self.OnKeyExport.emit(true);
 	  });
+  }
+
+  clearForm(){
+    this.showPrivateKey = false;
+    this.form.reset();
   }
 }

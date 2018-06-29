@@ -10,6 +10,7 @@ import { WalletContractService } from '../WalletContractService';
 export class ImportComponent implements OnInit {
   
   @Output() OnAccountImport = new EventEmitter<boolean>();
+  @Output() OnImport = new EventEmitter<boolean>();
   form : FormGroup;
   constructor(private ws : WalletContractService,private fb : FormBuilder){
 	    
@@ -30,5 +31,9 @@ export class ImportComponent implements OnInit {
 	  this.ws.importAccount(form.value.email2,form.value.passwd2,form.value.privKey).subscribe(function(result){
 		  _self.OnAccountImport.emit(true);
 	  });
+  }
+
+  onImport(){
+    this.OnImport.emit(true);
   }
 }

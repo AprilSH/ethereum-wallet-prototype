@@ -1,0 +1,78 @@
+<table *ngIf="accountInfo" width="100%">
+    <tr style="max-width: 400px; padding:10px;">
+        <td><img class="account-icon" src="assets/eth.png" ></td>
+        <td style="padding: 10px;">
+            <tr >
+                <td class="email" id="infoEmail">{{ accountInfo[0] }}</td>
+                <td style="text-align: right">
+                    <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="modalView(1)">
+                            Accounts
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button" *ngFor="let detail of listAccount" (click)="loadAccountInfo(true, (detail.aEmail))">
+                                <img class="list-icon" src="assets/ethereum.png" >{{ detail.aEmail }} ({{ detail.balance }} eth)
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr id="infoPubKey" class="address" ><td colspan="2">{{ accountInfo[1] }}</td></tr>
+        </td>
+    </tr>
+    <tr>
+        <!-- <td id="infoPubKey" class="address">{{ accountInfo[1] }}</td> -->
+        <td></td>
+        <td style="padding: 10px;">
+            <tr >
+                <td class="balance">{{accountInfo.balance}} Ether</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Options
+                        </button>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item" type="button"  data-toggle="modal" data-target="#exampleModal" (click)="modalView(1)">Create Account</button>
+                            <button class="dropdown-item" type="button"  data-toggle="modal" data-target="#exampleModal" (click)="modalView(2)">Import Account</button>
+                            <button class="dropdown-item" type="button"  data-toggle="modal" data-target="#exampleModal" (click)="modalView(3)">View Private Key</button>
+                            <button class="dropdown-item" type="button"  data-toggle="modal" data-target="#exampleModal" (click)="modalView(4)">Send Asset</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+        </td>
+        
+    </tr>
+</table>
+
+
+<div class="col-sm-6" style="margin: auto; text-align: center">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ modalLabel }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="txStatus()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <register-form (OnAccountCreate)="loadAccountList($event,1)" (OnCreate)="setStatus($event)" *ngIf="viewCreate" #create></register-form>
+                    <import-form (OnAccountImport)="loadAccountList($event,1)" (OnImport)="setStatus($event)" *ngIf="viewImport" #import></import-form>
+                    <transfer-form (OnEtherSend)="loadAccountList($event,1); loadAccountInfo($event,currAccnt)" (OnSend)="setStatus($event)" *ngIf="viewSend" #send></transfer-form>
+                    <extractKey-form (OnView)="setStatus($event)" (OnKeyExport)="loadAccountList($event,1)" *ngIf="viewKey"></extractKey-form>
+                </div>
+                <div class="modal-footer" style="text-align:left; ">
+                    <div class="col-sm-6"   *ngIf="status"><h4>{{ statusMsg }}</h4></div>
+                    <div class="col-sm-6" style="text-align:right;"><button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="txStatus();">Close</button></div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

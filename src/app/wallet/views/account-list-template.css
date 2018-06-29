@@ -2,7 +2,7 @@ body{
     background:#eee;    
 }
 .main-box.no-header {
-    padding-top: 20px;
+    padding-top: 30px;
 }
 .main-box {
     background: #FFFFFF;
@@ -62,3 +62,57 @@ a {
     border-top: 1px solid #e7ebee;
     padding: 12px 8px;
 }
+
+.tab{
+    width: 50%;
+    text-align: center;
+    font-weight: bold; 
+    font-size: 14pt
+}
+
+.tab-content{
+    font-size: 14pt;
+    padding: 20px;
+    border-width: 0 1px 1px 1px; 
+    border-style:solid; 
+    border-color: #ddd; 
+    border-radius: 0 0 5px 5px;
+    min-height: 30px;
+    /* box-shadow: 0 1px 0px -20px rgba(0,0,0,0.06), 0 3px 1px 0 rgba(0,0,0,0.06), 0 3px 1px 0 rgba(0,0,0,0.08) */
+}
+
+.token-btn{
+    display: flex; 
+    justify-content: space-between; 
+    vertical-align: middle;
+}
+
+.add-btn{
+    margin-top: 10px;
+}
+
+.bal-badge{
+    font-size: 12pt;
+}
+
+.loader {
+    margin: 20px auto;
+    border: 6px solid #f3f3f3d7;
+    border-radius: 50%;
+    border-top: 6px solid #3498db;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
