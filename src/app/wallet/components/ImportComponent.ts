@@ -33,6 +33,10 @@ export class ImportComponent implements OnInit {
 	  });
   }
 
+  clearForm(){
+    this.form.reset();
+  }
+
   onImport(){
     this.OnImport.emit(true);
   }

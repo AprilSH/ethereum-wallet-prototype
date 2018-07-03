@@ -28,3 +28,22 @@
 09:58:00.936395 db@open done T·75.3072ms
 14:18:56.592371 db@close closing
 14:18:56.610365 db@close done T·17.9947ms
+=============== Jul 3, 2018 (+08) ===============
+11:04:17.407589 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:04:17.414586 version@stat F·[2] S·786B[786B] Sc·[0.50]
+11:04:17.414586 db@open opening
+11:04:17.415590 journal@recovery F·1
+11:04:17.423593 journal@recovery recovering @6
+11:04:17.434588 memdb@flush created L0@8 N·107 S·13KiB "\x01\u007f3..\xb96\b,v111":"\xfc?\xf1..\xa8P\xb9,v116"
+11:04:17.438592 version@stat F·[3] S·14KiB[14KiB] Sc·[0.75]
+11:04:17.456593 db@janitor F·5 G·0
+11:04:17.456593 db@open done T·42.0072ms
+11:20:29.777713 table@compaction L0·3 -> L1·0 S·14KiB Q·123
+11:20:29.784713 table@build created L1@11 N·101 S·13KiB "\x01\u007f3..\xb96\b,v111":"\xfc?\xf1..\xa8P\xb9,v116"
+11:20:29.784713 version@stat F·[0 1] S·13KiB[0B 13KiB] Sc·[0.00 0.00]
+11:20:29.787715 table@compaction committed F-2 S-535B Ke·0 D·17 T·10.0012ms
+11:20:29.788712 table@remove removed @8
+11:20:29.790713 table@remove removed @5
+11:20:29.792712 table@remove removed @2
+11:21:46.291302 db@close closing
+11:21:46.296292 db@close done T·4.9897ms

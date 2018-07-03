@@ -34,6 +34,10 @@ export class RegisterComponent implements OnInit {
 	  });
   }
 
+  clearForm(){
+    this.form.reset();
+  }
+
   onCreate(){
     this.OnCreate.emit(true);
     console.log("success");

@@ -3,6 +3,8 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { WalletContractService } from '../WalletContractService';
 import { TransferComponent } from '../components/TransferComponent';
 import { ExtractKeyComponent } from '../components/ExtractKeyComponent';
+import { ImportComponent } from '../components/ImportComponent';
+import { RegisterComponent } from '../components/RegisterComponent';
 
 @Component({
   selector: 'account-details',
@@ -14,6 +16,10 @@ export class DetailComponent implements OnInit {
   private transfer: TransferComponent;
   @ViewChild(ExtractKeyComponent)
   private view: ExtractKeyComponent;
+  @ViewChild(ImportComponent)
+  private import: TransferComponent;
+  @ViewChild(RegisterComponent)
+  private register: TransferComponent;
   @Output() OnChangeAccount = new EventEmitter<string>();
   @Output() OnClose = new EventEmitter<boolean>();
   modalLabel = "";
@@ -106,7 +112,17 @@ export class DetailComponent implements OnInit {
     this.status = false;
     this.statusMsg = "Pending..."
     this.test = true;
-    this.transfer.clearForm();
-    // this.view.clearForm();
+    if (this.viewCreate){
+      this.register.clearForm();
+    }
+    else if(this.viewImport){
+      this.import.clearForm();
+    }
+    else if(this.viewKey){
+      this.view.clearForm();
+    }
+    else if(this.viewSend){
+      this.transfer.clearForm();
+    }
   }
 }
