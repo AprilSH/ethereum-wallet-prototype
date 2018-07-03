@@ -39,7 +39,7 @@ Ex. geth --networkid "10" --ws --wsorigins "*" --nodiscover --datadir "C:\NgWall
 
 ## Development server
 
-* Open command line and go to NgWallet folder
+* Open command line and go to ethereum-wallet-prototype folder
 
 	Run 'npm install' to retrieve dependency.
 
