@@ -1,10 +1,10 @@
 <table *ngIf="accountInfo" width="100%">
-    <tr style="max-width: 400px; padding:10px;">
+    <tr class="info-table">
         <td><img class="account-icon" src="assets/eth.png" ></td>
-        <td style="padding: 10px;">
+        <td class="table-padding">
             <tr >
                 <td class="email" id="infoEmail">{{ accountInfo[0] }}</td>
-                <td style="text-align: right">
+                <td class="right-align">
                     <div class="dropdown">
                         <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="modalView(1)">
                             Accounts
@@ -21,9 +21,8 @@
         </td>
     </tr>
     <tr>
-        <!-- <td id="infoPubKey" class="address">{{ accountInfo[1] }}</td> -->
         <td></td>
-        <td style="padding: 10px;">
+        <td class="table-padding">
             <tr >
                 <td class="balance">{{accountInfo.balance}} Ether</td>
                 <td>
@@ -67,7 +66,7 @@
                 </div>
                 <div class="modal-footer" style="text-align:left; ">
                     <div class="col-sm-6"   *ngIf="status"><h4>{{ statusMsg }}</h4></div>
-                    <div class="col-sm-6" style="text-align:right;"><button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="txStatus();">Close</button></div>
+                    <div class="col-sm-6 right-align"><button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="txStatus();">Close</button></div>
                     
                 </div>
             </div>

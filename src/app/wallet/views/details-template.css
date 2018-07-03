@@ -33,3 +33,16 @@
     width: 30px;
     height: 30px;
 }
+
+.info-table{
+    max-width: 400px; 
+    padding:10px;
+}
+
+.table-padding{
+    padding: 10px;
+}
+
+.right-align{
+    text-align: right;
+}
