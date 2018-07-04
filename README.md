@@ -23,13 +23,12 @@ Ex. geth --networkid "10" --ws --wsorigins "*" --nodiscover --datadir "C:\NgWall
 
 * If you don't have an account yet
 
-	1. Create account
+	1. Create Account (inside geth console)
 
 		Start geth  
 
-		then execute personal.NewAccount()
-
-		then enter passphrase for account
+		then execute 
+    personal.newAccount("passphrase")
 
 	2. then start network 
  
